@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28922.388
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zapalap.HomeAutomation.WebApi", "Zapalap.HomeAutomation.WebApi\Zapalap.HomeAutomation.WebApi.csproj", "{66D1716B-CF8C-4720-990F-785608A2FF66}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zapalap.HomeAutomation.Core", "Zapalap.HomeAutomation.Core\Zapalap.HomeAutomation.Core.csproj", "{4B4AA868-C57C-4119-A53F-EE3B109850A8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{66D1716B-CF8C-4720-990F-785608A2FF66}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{66D1716B-CF8C-4720-990F-785608A2FF66}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{66D1716B-CF8C-4720-990F-785608A2FF66}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{66D1716B-CF8C-4720-990F-785608A2FF66}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4B4AA868-C57C-4119-A53F-EE3B109850A8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4B4AA868-C57C-4119-A53F-EE3B109850A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4B4AA868-C57C-4119-A53F-EE3B109850A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4B4AA868-C57C-4119-A53F-EE3B109850A8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B08B2C26-6ECD-493F-A684-E9200E4AF24F}
+	EndGlobalSection
+EndGlobal
