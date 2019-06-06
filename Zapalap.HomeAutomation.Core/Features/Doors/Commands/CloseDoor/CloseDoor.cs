@@ -8,7 +8,7 @@ using Zapalap.HomeAutomation.Core.Helpers.Results;
 
 namespace Zapalap.HomeAutomation.Core.Features.Doors.Commands.CloseDoor
 {
-    public class CloseDoor : IRequest<RequestResult<DoorStateDto>>, INeedGeneralDoorValidation
+    public class CloseDoor : IRequest<RequestResult<DoorStateDto>>
     {
         public int DoorId { get; set; }
         public bool ShouldLock { get; set; }

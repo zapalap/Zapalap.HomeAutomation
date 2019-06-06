@@ -19,7 +19,7 @@ namespace Zapalap.HomeAutomation.WebApi.Controllers
             Mediator = mediator;
         }
 
-        [HttpPost("openRequests/{doorId}")]
+        [HttpPost("{doorId}/openRequests")]
         public async Task<IActionResult> OpenDoor([FromRoute]int doorId, [FromBody]OpenDoor command)
         {
             command.DoorId = doorId;
@@ -35,7 +35,7 @@ namespace Zapalap.HomeAutomation.WebApi.Controllers
             }
         }
 
-        [HttpPost("closeRequests/{doorId}")]
+        [HttpPost("{doorId}/closeRequests")]
         public async Task<IActionResult> CloseDoor([FromRoute]int doorId, [FromBody]CloseDoor command)
         {
             command.DoorId = doorId;

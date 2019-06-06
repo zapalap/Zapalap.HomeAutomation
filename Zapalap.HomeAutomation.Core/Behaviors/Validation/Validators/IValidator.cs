@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Zapalap.HomeAutomation.Core.Behaviors.Validators
+namespace Zapalap.HomeAutomation.Core.Behaviors.Validation.Validators
 {
     public interface IValidator<in TRequest>
     {

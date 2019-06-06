@@ -7,14 +7,13 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Zapalap.HomeAutomation.Core.Behaviors
+namespace Zapalap.HomeAutomation.Core.Behaviors.Logging
 {
     public class LoggingBehavior<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>
     {
         public async Task<TResponse> Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate<TResponse> next)
         {
-            var formattedPayload = GetFormattedPayload(request);
-            Debug.WriteLine($"Recieved {request.GetType().Name} with payload: {formattedPayload}");
+            Debug.WriteLine($"Recieved {request.GetType().Name} with payload: {GetFormattedPayload(request)}");
 
             var result = await next();
 

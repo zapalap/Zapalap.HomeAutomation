@@ -9,7 +9,9 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using SimpleInjector;
 using Zapalap.HomeAutomation.Core.Behaviors;
-using Zapalap.HomeAutomation.Core.Behaviors.Validators;
+using Zapalap.HomeAutomation.Core.Behaviors.Logging;
+using Zapalap.HomeAutomation.Core.Behaviors.Validation;
+using Zapalap.HomeAutomation.Core.Behaviors.Validation.Validators;
 using Zapalap.HomeAutomation.Core.Features.Doors.Commands.OpenDoor;
 using Zapalap.HomeAutomation.WebApi.Config;
 using Zapalap.HomeAutomation.WebApi.Infrastructure.ServiceCollectionExtensions;
@@ -24,28 +26,17 @@ namespace Zapalap.HomeAutomation.WebApi
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMediatR(typeof(OpenDoor).Assembly);
             services.AddMvc();
 
-            // Mediator Pipline Behaviors
-            //services.AddScoped(typeof(IPipelineBehavior<,>), typeof(LoggingBehavior<,>));
-            //services.AddScoped(typeof(IPipelineBehavior<,>), typeof(JsonLoggingBehavior<,>));
-            //services.AddScoped(typeof(IPipelineBehavior<,>), typeof(InputValidatingBehavior<,>));
-            //services.AddCollection(typeof(IValidator<>), new[] { typeof(IValidator<>).Assembly }, ServiceLifetime.Scoped);
-
-            services.AddSimpleInjectorDefaults(Container);
+            services.RegisterServicesWithMicrosoftDependencyInjection();
+            //services.RegisterServicesWithSimpleInjector(Container);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
-            if (env.IsDevelopment())
-            {
-                //app.UseDeveloperExceptionPage();
-            }
-
             app.UseMvc();
-            app.RegisterServicesWithSimpleInjectorAndVerify(Container);
+            //app.UseSimpleInjectorAndVerify(Container);
 
             app.Run(async (context) =>
             {

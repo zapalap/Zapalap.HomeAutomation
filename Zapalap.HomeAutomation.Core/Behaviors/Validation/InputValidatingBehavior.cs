@@ -6,10 +6,10 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using Zapalap.HomeAutomation.Core.Behaviors.Validators;
+using Zapalap.HomeAutomation.Core.Behaviors.Validation.Validators;
 using Zapalap.HomeAutomation.Core.Helpers.Results;
 
-namespace Zapalap.HomeAutomation.Core.Behaviors
+namespace Zapalap.HomeAutomation.Core.Behaviors.Validation
 {
     public class InputValidatingBehavior<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse> 
     {

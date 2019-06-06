@@ -7,26 +7,28 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Zapalap.HomeAutomation.Core.Behaviors;
-using Zapalap.HomeAutomation.Core.Behaviors.Validators;
+using Zapalap.HomeAutomation.Core.Behaviors.Logging;
+using Zapalap.HomeAutomation.Core.Behaviors.Validation;
+using Zapalap.HomeAutomation.Core.Behaviors.Validation.Validators;
 
 namespace Zapalap.HomeAutomation.WebApi.Config
 {
     public static class SimpleInjectorConfig
     {
-        public static void AddSimpleInjectorDefaults(this IServiceCollection services, Container container)
+        public static void RegisterServicesWithSimpleInjector(this IServiceCollection services, Container container)
         {
             services.AddSimpleInjector(container, options =>
             {
                 options.AddAspNetCore()
                     .AddControllerActivation();
             });
+
+            RegisterAppDependencies(container);
         }
 
-        public static void RegisterServicesWithSimpleInjectorAndVerify(this IApplicationBuilder app, Container container)
+        public static void UseSimpleInjectorAndVerify(this IApplicationBuilder app, Container container)
         {
             app.UseSimpleInjector(container);
-            RegisterAppDependencies(container);
-
             container.Verify();
         }
 

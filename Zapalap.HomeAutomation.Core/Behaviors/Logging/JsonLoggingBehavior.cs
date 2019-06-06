@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Zapalap.HomeAutomation.Core.Behaviors
+namespace Zapalap.HomeAutomation.Core.Behaviors.Logging
 {
     public class JsonLoggingBehavior<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>
     {

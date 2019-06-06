@@ -14,22 +14,24 @@ namespace Zapalap.HomeAutomation.Core.Features.Doors.Commands.OpenDoor
     {
         public async Task<RequestResult<DoorStateDto>> Handle(OpenDoor request, CancellationToken cancellationToken)
         {
+            Debug.WriteLine($"Recieved open door request for {request.DoorId}");
+
             if (request.DoorId == 0)
             {
-                return new DoorStateDto()
-                    .AsFailureResult("Invalid door");
+                Debug.WriteLine("Invalid door id");
+                return new DoorStateDto().AsFailureResult("Invalid door");
             }
 
             if (request.DoorId > 10)
             {
-                return new DoorStateDto()
-                    .AsFailureResult("There are only 10 doors in this house");
+                Debug.WriteLine("Door id too high");
+                return new DoorStateDto().AsFailureResult("There are only 10 doors in this house");
             }
 
             if (request.DoorId == 5 && request.Password != "OpenSesame")
             {
-                return new DoorStateDto()
-                    .AsFailureResult("Incorrect password");
+                Debug.WriteLine("Incorrect password");
+                return new DoorStateDto().AsFailureResult("Incorrect password");
             }
 
             return new DoorStateDto
