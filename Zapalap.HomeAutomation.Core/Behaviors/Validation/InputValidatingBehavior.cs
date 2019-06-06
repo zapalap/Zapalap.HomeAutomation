@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using Zapalap.HomeAutomation.Core.Behaviors.Validation.Exceptions;
 using Zapalap.HomeAutomation.Core.Behaviors.Validation.Validators;
 using Zapalap.HomeAutomation.Core.Helpers.Results;
 
@@ -28,7 +29,7 @@ namespace Zapalap.HomeAutomation.Core.Behaviors.Validation
             {
                 var messages = string.Join(" | ", validationResults.Select(v => v.Message));
                 Debug.WriteLine($"Validation failed: {messages}");
-                throw new InvalidOperationException(messages);
+                throw new InputValidationException(messages);
             }
 
             return await next();
