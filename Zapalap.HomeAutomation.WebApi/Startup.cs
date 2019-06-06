@@ -11,6 +11,7 @@ using SimpleInjector;
 using Zapalap.HomeAutomation.Core.Behaviors;
 using Zapalap.HomeAutomation.Core.Behaviors.Logging;
 using Zapalap.HomeAutomation.Core.Behaviors.Validation;
+using Zapalap.HomeAutomation.Core.Behaviors.Validation.Exceptions;
 using Zapalap.HomeAutomation.Core.Behaviors.Validation.Validators;
 using Zapalap.HomeAutomation.Core.Features.Doors.Commands.OpenDoor;
 using Zapalap.HomeAutomation.WebApi.Config;
@@ -20,10 +21,8 @@ namespace Zapalap.HomeAutomation.WebApi
 {
     public class Startup
     {
-        private Container Container = new Container();
+        //private Container Container = new Container();
 
-        // This method gets called by the runtime. Use this method to add services to the container.
-        // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
@@ -32,10 +31,11 @@ namespace Zapalap.HomeAutomation.WebApi
             //services.RegisterServicesWithSimpleInjector(Container);
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
             app.UseMvc();
+
+            //app.UsePipelineErrorHandling();
             //app.UseSimpleInjectorAndVerify(Container);
 
             app.Run(async (context) =>

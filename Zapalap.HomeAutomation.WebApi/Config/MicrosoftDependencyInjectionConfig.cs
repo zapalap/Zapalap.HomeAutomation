@@ -16,12 +16,15 @@ namespace Zapalap.HomeAutomation.WebApi.Config
     {
         public static void RegisterServicesWithMicrosoftDependencyInjection(this IServiceCollection services)
         {
+            //This will scan the assembly and register all handlers
             services.AddMediatR(typeof(OpenDoor).Assembly);
 
-            // Mediator Pipline Behaviors
+            // Register pipline behaviors in order they are added
             //services.AddScoped(typeof(IPipelineBehavior<,>), typeof(LoggingBehavior<,>));
             //services.AddScoped(typeof(IPipelineBehavior<,>), typeof(JsonLoggingBehavior<,>));
             //services.AddScoped(typeof(IPipelineBehavior<,>), typeof(InputValidatingBehavior<,>));
+
+            //Register validator collection for the InputValidatingBehavior. Does not support Contravariance :(
             //services.AddCollection(typeof(IValidator<>), new[] { typeof(IValidator<>).Assembly }, ServiceLifetime.Scoped);
         }
     }

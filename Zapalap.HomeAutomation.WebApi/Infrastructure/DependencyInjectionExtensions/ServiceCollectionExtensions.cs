@@ -9,8 +9,10 @@ namespace Zapalap.HomeAutomation.WebApi.Infrastructure.ServiceCollectionExtensio
 {
     public static class ServiceCollectionExtensions
     {
+        //This allows to scan the assembly and register all types matching a generic interface as collection
         public static void AddCollection(this IServiceCollection services, Type serviceType, Assembly[] assemblies, ServiceLifetime serviceLifetime = ServiceLifetime.Transient)
         {
+            //Find all generic types in all given assemblies that match the given serviceType
             var typesToRegister = assemblies
                 .SelectMany(a => a.GetTypes()
                     .Where(x => x.GetInterfaces().Any(t => (t.IsGenericType && t.GetGenericTypeDefinition() == serviceType) || (t == serviceType))));
