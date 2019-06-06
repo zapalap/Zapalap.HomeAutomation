@@ -70,13 +70,7 @@ namespace Zapalap.HomeAutomation.WebApi
                 typeof(InputValidatingBehavior<,>),
                 });
 
-            var typesToRegister = Container.GetTypesToRegister(typeof(IValidator<>), new[] { typeof(IValidator<>).Assembly }, new TypesToRegisterOptions
-            {
-                IncludeGenericTypeDefinitions = true,
-                IncludeComposites = false
-            });
-
-            Container.Collection.Register(typeof(IValidator<>), typesToRegister);
+            Container.Collection.Register(typeof(IValidator<>), typeof(IValidator<>).Assembly);
         }
     }
 }

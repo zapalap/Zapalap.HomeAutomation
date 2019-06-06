@@ -22,7 +22,7 @@ namespace Zapalap.HomeAutomation.Core.Behaviors
 
         public async Task<TResponse> Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate<TResponse> next)
         {
-            var validationResults = Validators.Select(v => v.Validate(request));
+            var validationResults = Validators.Select(v => v.Validate(request)).ToList();
 
             if (validationResults.Any(v => v.InputIsInvalid))
             {
