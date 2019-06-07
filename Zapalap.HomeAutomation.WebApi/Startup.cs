@@ -33,9 +33,9 @@ namespace Zapalap.HomeAutomation.WebApi
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
+            //app.UsePipelineErrorHandling();
             app.UseMvc();
 
-            //app.UsePipelineErrorHandling();
             //app.UseSimpleInjectorAndVerify(Container);
 
             app.Run(async (context) =>
